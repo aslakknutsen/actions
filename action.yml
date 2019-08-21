@@ -1,10 +1,6 @@
-name: 'Node 12 Template Action'
-description: 'Get started with Node actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+name: 'Go Path Helpers'
+description: 'Simple helpers to improve GitHub Actions Go Lang support'
+author: 'Aslak Knutsen'
 runs:
   using: 'node12'
   main: 'lib/main.js'
