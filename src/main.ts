@@ -5,7 +5,15 @@ async function run() {
   try {
 
     var goEnvPath = await getGoPath()
-    core.addPath(goEnvPath + "/bin")
+    var goEnvBin = goEnvPath + "/bin"
+
+    core.exportVariable("GOPATH", goEnvPath)
+    core.exportVariable("GOBIN", goEnvBin)
+    core.addPath(goEnvBin)
+    
+    await exec.exec("mkdir -p " + goEnvPath + "/pkg")
+    await exec.exec("mkdir -p " + goEnvBin)
+    await exec.exec("cd " + goEnvPath)
     
   } catch (error) {
     core.setFailed(error.message);
