@@ -13,7 +13,8 @@ async function run() {
     
     await exec.exec("mkdir -p " + goEnvPath + "/pkg")
     await exec.exec("mkdir -p " + goEnvBin)
-    await exec.exec("cd " + goEnvPath)
+    
+    console.log("##[cd]" + goEnvPath)
     
   } catch (error) {
     core.setFailed(error.message);
